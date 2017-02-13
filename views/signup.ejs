@@ -1,0 +1,65 @@
+<% include partials/masterhead %>
+<div class="row">
+  <div  class="medium-4 columns medium-offset-4">
+    <h1> Signup now</h1>
+  </div>
+</div>
+
+<% if (message.length > 0) { %>
+  <div class="row ">
+  <div class="medium-4  columns medium-offset-4">
+    <div class="callout small alert ">
+         <%= message %>
+    </div>
+  </div>
+  </div>
+    <% } %>
+
+<form action="/user/create" method="post">
+  <div class="row" >
+    <div class="medium-4 columns medium-offset-4" >
+      <label>First Name
+       <input type="text" name="firstname" placeholder="first name">
+     </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-4 columns medium-offset-4">
+      <label>Last Name
+       <input type="text" name="lastname" placeholder="last name">
+     </label>
+    </div>
+  </div>
+
+  <div class="row" >
+    <div class="medium-4 columns medium-offset-4" >
+      <label>User Name
+       <input type="text" name="username" placeholder="User name">
+     </label>
+    </div>
+  </div>
+
+  <div class="row" >
+    <div class="medium-4 columns medium-offset-4" >
+      <label>Email Adress
+       <input type="email" name="email" placeholder="email adress">
+     </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-4 columns medium-offset-4">
+      <label>password
+       <input type="password" name="password" placeholder="enter password">
+     </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-2 columns medium-offset-4">
+      <button type="submit" class="button success">signup</button>
+    </div>
+    <div class="medium-2 columns end ">
+        <p> Already a member? <a href="/login">Login</a></p>
+    </div>
+  </div>
+</form>
+  <% include partials/pagescripts%>

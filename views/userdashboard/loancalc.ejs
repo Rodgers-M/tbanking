@@ -1,0 +1,20 @@
+<% layout('userlayout') %>
+<div class="callout" align="center">
+  some info about loan and the calculation process
+</div>
+<form action="/loancalc/new" method="post">
+
+  <div class="row" >
+    <div class="medium-4 columns medium-offset-4" >
+      <label>Loan amount
+       <input type="number" name="amount" placeholder="amount to borrow">
+     </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="medium-4 columns medium-offset-5">
+      <button type="submit" class="button success">Calculate </button>
+    </div>
+  </div>
+</form>

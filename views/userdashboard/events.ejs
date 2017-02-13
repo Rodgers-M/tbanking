@@ -1,0 +1,42 @@
+<% layout('userlayout') %>
+<div class="row">
+  <div class="medium-12 columns  " style="margin-top:2%">
+    <div class="callout success" align="center">
+    You can always view all the events here. The events are sorted in in ascending order, with
+    latest upcoming event appearing first.
+  </div>
+  </div>
+</div>
+<div class="row">
+  <div class="medium-12 columns">
+    <div class="callout">
+      <div><h3>Current Events</h3></div>
+      <div class="callout secondary">
+        <table style="width: 100%">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Venue</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% events.forEach(function(event, index){ %>
+              <tr>
+                <th scope="row"><%= index + 1 %></th>
+                <td><%= event.title %></td>
+                <td><%= event.venue %></td>
+                <td><%= event.date %></td>
+                <td><%= event.time %></td>
+                <td><%= event.description %></td>
+              </tr>
+              <%});%>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>

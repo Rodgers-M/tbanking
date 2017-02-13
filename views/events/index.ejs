@@ -1,0 +1,49 @@
+<% layout('adminlayout') %>
+<div class="row">
+  <div class="medium-5 columns medium-offset-1" style="margin-top:2%">
+    <% include ../partials/flash %>
+  </div>
+  <div class="medium-3 columns medium-offset-1 " style="margin-top:2%">
+    <a class="large button success " href="/newevent">Create Event</a>
+  </div>
+</div>
+<div class="row">
+  <div class="medium-12 columns">
+    <div class="callout">
+      <div><h3>Current Events</h3></div>
+      <div class="callout secondary">
+        <table style="width: 100%">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Venue</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Description</th>
+                <th>Options</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% events.forEach(function(event, index){ %>
+              <tr>
+                <th scope="row"><%= index + 1 %></th>
+                <td><%= event.title %></td>
+                <td><%= event.venue %></td>
+                <td><%= event.date %></td>
+                <td><%= event.time %></td>
+                <td><%= event.description %></td>
+                <td>
+                  <ul class="menu">
+                    <li><a href="#" title="Edit"> Edit<i class="fa fa-pencil-square-o " aria-hidden="true"></i> </a></li>
+                    <li><a href="#" title="Delete"> Delete<i class="fa fa-trash " aria-hidden="true"></i></a></li>
+                  </ul>
+                </td>
+              </tr>
+              <%});%>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>

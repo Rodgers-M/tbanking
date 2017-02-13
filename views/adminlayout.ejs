@@ -1,0 +1,14 @@
+<% include partials/masterhead %>
+<body style="background-color: #ebebe0">
+  <% include admindashboard/topbar %>
+
+  <div class="row" data-equalizer data-equalize-on="medium">
+    <% include admindashboard/sidebar %>
+    <div class="medium-10 columns" data-equalizer-watch>
+      <%-body %>
+    </div>
+  </div>
+
+  <% include partials/pagescripts%>
+
+</body>
