@@ -1,0 +1,22 @@
+{
+  "name": "tablebanking",
+  "description": "A system to manage group operations",
+  "main": "server.js",
+  "authors": [
+    "alex <alexkoome@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation-sites": "^6.3.0",
+    "components-font-awesome": "^4.7.0"
+  }
+}
