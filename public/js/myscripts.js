@@ -13,3 +13,7 @@ $(document).ready(function(){
 	});
 
 });
+
+$(function() {
+  $('#eventTime').timepicker();
+});
