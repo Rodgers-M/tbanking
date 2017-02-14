@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/Rodgers-M/tBanking.git"
+    "url": "git+https://github.com/Rodgers-M/tBanking.git"
   },
   "author": "Rodgers",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/Rodgers-M/tBanking/issues"
+    "url": "https://github.com/Rodgers-M/tBanking/issues"
   },
-  "homepage": "https://gitlab.com/Rodgers-M/tBanking#README",
+  "homepage": "https://github.com/Rodgers-M/tBanking#README",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.2",
