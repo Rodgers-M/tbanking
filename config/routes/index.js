@@ -18,11 +18,7 @@ function isLoggedIn(req, res, next) {
 router.get('/', homeRoutes.index);
 router.get('/login', sessionRoutes.new);
 router.post('/session/create', sessionRoutes.create
-    /*  passport.authenticate('local-login', {
-      successRedirect : '/userevents',
-      failureRedirect : '/login', // redirect back to the login page if there is an error
-      failureFlash : true // allow flash messages
-  })*/
+  
 );
 router.get('/logout', sessionRoutes.delete);
 router.get('/signup', userRoutes.new );
@@ -33,7 +29,7 @@ router.post('/user/create',passport.authenticate('local-signup', {
     }));
 
 router.get('/roles/:role',  roleRoutes.create);
-router.get('/roles');
+router.get('/roles', roleRoutes.index);
 router.post('/role', roleRoutes.assign);
 
 router.get('/shares', function(req, res){
