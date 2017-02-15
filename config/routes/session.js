@@ -1,4 +1,5 @@
 var passport   =  require('passport');
+var Role = require("../../app/models/roles");
 
 module.exports ={
   new : function(req, res){
@@ -17,9 +18,23 @@ module.exports ={
      req.login(user, function(err){
        if(err) return next(err);
        console.log(user);
-       roleId = user.role;
-       console.log(roleId);
-       res.redirect('/userevents');
+       console.log(user.local.username);
+       roleId = user.local.role;
+
+       if(roleId){
+         Role.findById(roleId, function(err, role){
+           if(err) return err;
+           if(role.name == 'admin'){
+             res.redirect('/events');
+           }
+
+         });
+       }
+       else{
+           res.redirect('/userevents');
+       }
+
+
      });
     })(req, res, next);
   },
