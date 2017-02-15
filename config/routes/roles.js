@@ -36,13 +36,16 @@ module.exports = {
 
       if(foundUser){
         console.log(foundUser);
+        console.log(foundUser.local.username);
         Role.findOne({ 'name': role}, function(err, foundRole){
           if(err) return err;
 
           if(foundRole){
             console.log('role found');
+            console.log(foundRole._id);
 
-            foundUser.update({"role" : []}, {$set:{"role": foundRole._id}},
+
+            User.update({"local.username" : foundUser.local.username}, {$set:{"local.role": foundRole._id}},
             function(err, user){
               if(err) return err;
 
@@ -51,6 +54,7 @@ module.exports = {
             });
           }
         });
+
       }
     });
   }
