@@ -34,13 +34,13 @@ router.get('/members', membersRoutes.index);
 
 //roles routes
 router.get('/roles/:role',  roleRoutes.create);
-router.get('/roles', roleRoutes.index);
-router.post('/role', roleRoutes.assign);
+router.get('/roles',isLoggedIn, roleRoutes.index);
+router.post('/role', isLoggedIn, roleRoutes.assign);
 
 //shares routes
-router.get('/manageshares', sharesRoutes.new);
-router.post('/updateshares', sharesRoutes.update);
-router.get('/shares', sharesRoutes.userShares);
+router.get('/manageshares', isLoggedIn, sharesRoutes.new);
+router.post('/updateshares', isLoggedIn, sharesRoutes.update);
+router.get('/shares', isLoggedIn, sharesRoutes.userShares);
 router.get('/loancalc', function(req, res){
   res.render('userdashboard/loancalc',{
       page : 'loancalc'
@@ -48,9 +48,9 @@ router.get('/loancalc', function(req, res){
 });
 
 //events routes
-router.get('/newevent', eventRoutes.new);
-router.post('/events/new', eventRoutes.create);
-router.get('/events', eventRoutes.index);
+router.get('/newevent', isLoggedIn, eventRoutes.new);
+router.post('/events/new', isLoggedIn, eventRoutes.create);
+router.get('/events', isLoggedIn,eventRoutes.index);
 router.get('/userevents', eventRoutes.userevent);
 
 module.exports = router;
