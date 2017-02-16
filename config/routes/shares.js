@@ -16,12 +16,12 @@ module.exports ={
   },
   update : function(req, res){
     username        = req.body.username;
-    sharesBought    = req.body.shares;
+    sharesBought    = parseInt(req.body.shares);
 
     User.findOne({"local.username" : username}, function(err, user){
       if(err) return err;
       console.log(user);
-      currentShares   = user.local.shares;
+      currentShares   = parseInt(user.local.shares);
       newShares       = currentShares + sharesBought;
       console.log(newShares);
       User.update({"local.username" : user.local.username}, {$set:{"local.shares": newShares}},
