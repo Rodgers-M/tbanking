@@ -6,11 +6,11 @@ var Role          =   require('../../app/models/roles');
 
 var userSchema    = new Schema({
   local: {
-      username  :  { type: String },
+      username  :  { type: String, unique:true },
       firstname :  { type: String },
       lastname  :  { type: String },
       password  :  { type: String },
-      email     :  { type: String },
+      email     :  { type: String, unique:true },
       shares    :  { type: Number },
       role      :  {type: Schema.Types.ObjectId, ref:Role }
     }
