@@ -4,19 +4,19 @@
 		 <i class="fa fa-user fa-2x dash_icons" aria-hidden="true"></i> </br>User
 	</a>
 	</li>
-	<li ><a href="#">
+	<li <% if (page === 'events') { %>class="active" <% } %> ><a href="/events">
 		<i class="fa fa-calendar fa-2x dash_icons" aria-hidden="true"></i> </br> Events
 	</a></li>
-  <li><a href="/shares">
+  <li <% if (page === 'shares') { %>class="active" <% } %>><a href="/manageshares">
 		<i class="fa fa-briefcase fa-2x dash_icons" aria-hidden="true"></i> </br> Shares
 	</a></li>
 
-	<li><a href="#">
+	<li <% if (page === 'members') { %>class="active" <% } %>><a href="#">
 		<i class="fa fa-cubes fa-2x dash_icons" aria-hidden="true"></i> </br> Members
 	</a></li>
 
-	<li><a href="#">
-		<i class="fa fa-tty fa-2x dash_icons" aria-hidden="true"></i> </br> Requests
+	<li <% if (page === 'roles') { %>class="active" <% } %>><a href="/roles">
+		<i class="fa fa-cogs fa-2x dash_icons" aria-hidden="true"></i> </br> Roles
 	</a></li>
 	<li><a href="#">
 		<i class="fa fa-envelope fa-2x dash_icons" aria-hidden="true"></i> </br> Messages
