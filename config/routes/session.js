@@ -27,6 +27,9 @@ module.exports ={
            if(role.name == 'admin'){
              res.redirect('/events');
            }
+           else {
+             res.redirect('/userevents');
+           }
 
          });
        }
