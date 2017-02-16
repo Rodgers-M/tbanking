@@ -25,10 +25,12 @@ module.exports ={
          Role.findById(roleId, function(err, role){
            if(err) return err;
            if(role.name == 'admin'){
-             res.redirect('/events');
+             res.redirect(req.session.returnTo || '/events');
+             delete req.session.returnTo;
            }
            else {
-             res.redirect('/userevents');
+             res.redirect(req.session.returnTo || '/userevents');
+             delete req.session.returnTo;
            }
 
          });
