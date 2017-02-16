@@ -1,0 +1,37 @@
+<% layout('adminlayout') %>
+<div class="row">
+  <div class="medium-4 columns medium-offset-3" style="margin-top:2%">
+    <% include ../partials/flash %>
+  </div>
+</div>
+<div class="row" style="margin-top :2%;">
+  <div class="medium-8 columns medium-offset-2">
+    <div class="callout secondary">
+      <p>Some information about shares, their importance and why the records should be updated keenly</p>
+    </div>
+  </div>
+</div>
+<form action="/updateshares" method="post" style="margin-top: 2%;">
+<div class="row">
+  <div class="medium-1 columns medium-offset-3">
+    <label>Username</label>
+  </div>
+  <div class="medium-4 columns end ">
+    <input type="text" name="username" placeholder="username to update shares">
+  </div>
+</div>
+
+<div class="row">
+  <div class="medium-1 columns medium-offset-3">
+    <label>Shares</label>
+  </div>
+  <div class="medium-4 columns end ">
+    <input type="number" name="shares" placeholder="Amount of shares to update">
+  </div>
+</div>
+<div class="row">
+  <div class="medium-3 columns medium-offset-5 ">
+    <button type="submit" class="button success large">Update</button>
+  </div>
+</div>
+</form>
