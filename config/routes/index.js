@@ -7,6 +7,7 @@ var userRoutes      = require('./user');
 var eventRoutes     = require('./events');
 var  roleRoutes     = require('./roles');
 var  sharesRoutes   = require('./shares');
+var membersRoutes   = require('./members');
 
 function isLoggedIn(req, res, next) {
   if(req.isAuthenticated()){
@@ -29,6 +30,7 @@ router.post('/user/create',passport.authenticate('local-signup', {
         failureRedirect : '/signup', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
+router.get('/members', membersRoutes.index);
 
 //roles routes
 router.get('/roles/:role',  roleRoutes.create);
@@ -40,7 +42,9 @@ router.get('/manageshares', sharesRoutes.new);
 router.post('/updateshares', sharesRoutes.update);
 router.get('/shares', sharesRoutes.userShares);
 router.get('/loancalc', function(req, res){
-  res.send("your loan will be calculated here");
+  res.render('userdashboard/loancalc',{
+      page : 'loancalc'
+  });
 });
 
 //events routes
