@@ -2,11 +2,11 @@ var mongoose      =   require('mongoose');
 var Schema        =   mongoose.Schema;
 
 var EventSchema   = new Schema({
-    title        : { type : String },
-    venue        : {type  : String },
-    description  : {type  : String },
-    date         : {type  : Date },
-    time         : {type  : String }
+    title        : { type : String, unique:true },
+    venue        : { type : String },
+    description  : { type : String },
+    date         : { type : Date },
+    time         : { type : String }
 });
 
 EventSchema.methods.getEventByTitle = function(title, callback){
