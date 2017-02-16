@@ -3,7 +3,9 @@ var User = require("../../app/models/user");
 
 module.exports = {
   index  : function(req, res){
-    res.render('admindashboard/roles');
+    res.render('admindashboard/roles',{
+      page : 'roles'
+    });
   },
   create : function(req, res){
     var role = new Role();
@@ -19,6 +21,7 @@ module.exports = {
         role.save(function(err, role){
           if(err) return err;
           res.send("Role created successfully");
+          res.redirect('/roles');
         });
       }
     });
@@ -32,13 +35,19 @@ module.exports = {
     console.log(role);
     console.log(username);
     User.findOne({ 'local.username': username }, function(err, foundUser){
-      if(err) return err;
+      if(!foundUser) {
+        req.flash('error', 'user does not exist');
+        res.redirect('/roles');
+      }
 
       if(foundUser){
         console.log(foundUser);
         console.log(foundUser.local.username);
         Role.findOne({ 'name': role}, function(err, foundRole){
-          if(err) return err;
+          if(!foundRole){
+            req.flash('error', 'Role does not exist');
+            res.redirect('/roles');
+          }
 
           if(foundRole){
             console.log('role found');
@@ -49,8 +58,8 @@ module.exports = {
             function(err, user){
               if(err) return err;
 
-
-              res.send(user);
+             req.flash('success', 'role updated successfully');
+             res.redirect('/roles');
             });
           }
         });
