@@ -71,6 +71,6 @@ router.get('/loancalc', function(req, res){
 router.get('/newevent', isLoggedIn, eventRoutes.new);
 router.post('/events/new', isLoggedIn, eventRoutes.create);
 router.get('/events', isLoggedIn,eventRoutes.index);
-router.get('/userevents', eventRoutes.userevent);
+router.get('/userevents',isLoggedIn, eventRoutes.userevent);
 
 module.exports = router;
