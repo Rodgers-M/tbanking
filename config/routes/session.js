@@ -4,7 +4,6 @@ var Role = require("../../app/models/roles");
 module.exports ={
   new : function(req, res){
     res.render('login', {
-        message: req.flash('loginMessage'),
         title: "Login Page"
     });
   },
