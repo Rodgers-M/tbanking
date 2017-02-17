@@ -17,6 +17,7 @@ function isLoggedIn(req, res, next) {
     return next();
   }
   req.session.returnTo = req.path;
+  req.flash('info', 'you must login to acces this page');
   res.redirect('/login');
 }
 
@@ -49,19 +50,19 @@ router.post('/user/create',passport.authenticate('local-signup', {
         failureRedirect : '/signup', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
-router.get('/members', membersRoutes.index);
+router.get('/members', isLoggedIn, isAdmin, membersRoutes.index);
 
 //roles routes
 router.get('/roles/:role',  roleRoutes.create);
 router.get('/roles',isLoggedIn, isAdmin, roleRoutes.index);
-router.post('/role', isLoggedIn, roleRoutes.assign);
+router.post('/role', isLoggedIn, isAdmin, roleRoutes.assign);
 
 //shares routes
-router.get('/manageshares', isLoggedIn, sharesRoutes.new);
-router.post('/updateshares', isLoggedIn, sharesRoutes.update);
-router.get('/shares', isLoggedIn, sharesRoutes.userShares);
+router.get('/manageshares', isLoggedIn, isAdmin, sharesRoutes.new);
+router.post('/updateshares', isLoggedIn,  isAdmin, sharesRoutes.update);
+router.get('/shares', isLoggedIn,  isAdmin, sharesRoutes.userShares);
 router.get('/loancalc', function(req, res){
-  res.render('userdashboard/loancalc',{
+  res.render('userdashboard/loanca isAdmin,lc',{
       page : 'loancalc'
   });
 });
