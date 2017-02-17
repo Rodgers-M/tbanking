@@ -9,6 +9,9 @@ var  roleRoutes     = require('./roles');
 var  sharesRoutes   = require('./shares');
 var membersRoutes   = require('./members');
 
+var Role = require("../../app/models/roles");
+var User = require("../../app/models/user");
+
 function isLoggedIn(req, res, next) {
   if(req.isAuthenticated()){
     return next();
@@ -17,6 +20,22 @@ function isLoggedIn(req, res, next) {
   res.redirect('/login');
 }
 
+function isAdmin(req, res, next){
+  username = req.user.username;
+  console.log(username);
+  User.findOne({'local.username' : username}, function(err, foundUser){
+    roleId = foundUser.local.role;
+
+    Role.findById(roleId, function(err, role){
+      if(err) return error;
+      if(role.name == 'admin'){
+        return next()
+      }
+      req.flash('error', 'you are not authorised to access that resource');
+      res.redirect('/userevents');
+    } );
+  });
+}
 //user routes
 router.get('/', homeRoutes.index);
 router.get('/login', sessionRoutes.new);
@@ -34,7 +53,7 @@ router.get('/members', membersRoutes.index);
 
 //roles routes
 router.get('/roles/:role',  roleRoutes.create);
-router.get('/roles',isLoggedIn, roleRoutes.index);
+router.get('/roles',isLoggedIn, isAdmin, roleRoutes.index);
 router.post('/role', isLoggedIn, roleRoutes.assign);
 
 //shares routes
