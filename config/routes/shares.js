@@ -20,18 +20,23 @@ module.exports ={
 
     User.findOne({"local.username" : username}, function(err, user){
       if(err) return err;
-      console.log(user);
-      currentShares   = parseInt(user.local.shares);
-      newShares       = currentShares + sharesBought;
-      console.log(newShares);
-      User.update({"local.username" : user.local.username}, {$set:{"local.shares": newShares}},
-      function(err, user){
-        if(err) return err;
+      if(user){
         console.log(user);
-        req.flash('success', "shares updated successfully");
+        currentShares   = parseInt(user.local.shares);
+        newShares       = currentShares + sharesBought;
+        console.log(newShares);
+        User.update({"local.username" : user.local.username}, {$set:{"local.shares": newShares}},
+        function(err, user){
+          if(err) return err;
+          console.log(user);
+          req.flash('success', "shares updated successfully");
+          res.redirect('/manageshares');
+        });
+      }
+      else{
+        req.flash('info', 'user not found, please check spellings and try again');
         res.redirect('/manageshares');
       }
-    );
      });
   }
 }
