@@ -12,7 +12,7 @@ var userSchema    = new Schema({
       password  :  { type: String },
       email     :  { type: String, unique:true },
       shares    :  { type: Number },
-      role      :  {type: Schema.Types.ObjectId, ref:Role }
+      role      :  [{type: Schema.Types.ObjectId, ref:Role }]
     }
 },
   {timestamps: true}
