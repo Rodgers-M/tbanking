@@ -62,15 +62,15 @@ router.get('/manageshares', isLoggedIn, isAdmin, sharesRoutes.new);
 router.post('/updateshares', isLoggedIn,  isAdmin, sharesRoutes.update);
 router.get('/shares', isLoggedIn,  isAdmin, sharesRoutes.userShares);
 router.get('/loancalc', function(req, res){
-  res.render('userdashboard/loancalc',{
+  res.render('userdashboard/loanca isAdmin,lc',{
       page : 'loancalc'
   });
 });
 
 //events routes
-router.get('/newevent', isLoggedIn, eventRoutes.new);
-router.post('/events/new', isLoggedIn, eventRoutes.create);
-router.get('/events', isLoggedIn,eventRoutes.index);
+router.get('/newevent', isLoggedIn, isAdmin, eventRoutes.new);
+router.post('/events/new', isLoggedIn,isAdmin, eventRoutes.create);
+router.get('/events', isLoggedIn,isAdmin, eventRoutes.index);
 router.get('/userevents',isLoggedIn, eventRoutes.userevent);
 
 module.exports = router;
