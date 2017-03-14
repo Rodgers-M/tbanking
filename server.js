@@ -28,7 +28,8 @@ app.use(cookieParser());
 app.use(session({
 	 resave            : true,
    saveUninitialized : true,
-	 secret						 : configDB.secret
+	 secret						 : configDB.secret,
+	 store						 : new mongostore({url: configDB.url, autoReconnect : true})
 }));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
