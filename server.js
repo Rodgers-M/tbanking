@@ -29,7 +29,11 @@ app.use(session({
 	 resave            : true,
    saveUninitialized : true,
 	 secret						 : configDB.secret,
+<<<<<<< HEAD
 	 store						 : new mongostore({ url : configDB.url, autoReconnect : true })
+=======
+	 store						 : new mongostore({url: configDB.url, autoReconnect : true})
+>>>>>>> development
 }));
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
