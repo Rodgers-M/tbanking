@@ -62,7 +62,7 @@ router.get('/manageshares', isLoggedIn, isAdmin, sharesRoutes.new);
 router.post('/updateshares', isLoggedIn,  isAdmin, sharesRoutes.update);
 router.get('/shares', isLoggedIn,  isAdmin, sharesRoutes.userShares);
 router.get('/loancalc', function(req, res){
-  res.render('userdashboard/loanca isAdmin,lc',{
+  res.render('userdashboard/loancalc',{
       page : 'loancalc'
   });
 });
