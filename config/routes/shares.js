@@ -38,5 +38,15 @@ module.exports ={
         res.redirect('/manageshares');
       }
      });
+  },
+  myShares : function(req, res){
+  var  user = req.user.username;
+    console.log(user);
+    User.findOne({"local.username" : user},  function(err, user){
+      if(err) return err;
+      console.log( user.local.shares);
+      req.flash( 'info', 'hey', user.local.username, 'you have', user.local.shares, 'shares' );
+      res.redirect('userevents');
+    });
   }
 }
