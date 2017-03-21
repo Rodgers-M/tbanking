@@ -40,9 +40,7 @@ function isAdmin(req, res, next){
 //user routes
 router.get('/', homeRoutes.index);
 router.get('/login', sessionRoutes.new);
-router.post('/session/create', sessionRoutes.create
-
-);
+router.post('/session/create', sessionRoutes.create);
 router.get('/logout', sessionRoutes.delete);
 router.get('/signup', userRoutes.new );
 router.post('/user/create',passport.authenticate('local-signup', {
@@ -61,6 +59,7 @@ router.post('/role', isLoggedIn, isAdmin, roleRoutes.assign);
 router.get('/manageshares', isLoggedIn, isAdmin, sharesRoutes.new);
 router.post('/updateshares', isLoggedIn,  isAdmin, sharesRoutes.update);
 router.get('/shares', isLoggedIn,  isAdmin, sharesRoutes.userShares);
+router.get('/myshares', isLoggedIn,sharesRoutes.myShares);
 router.get('/loancalc', function(req, res){
   res.render('userdashboard/loancalc',{
       page : 'loancalc'
