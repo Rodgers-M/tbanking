@@ -20,26 +20,23 @@ module.exports ={
        console.log(user.local.username);
        roleId = user.local.role;
 
-       if(roleId){
          Role.findById(roleId, function(err, role){
            if(err) return err;
-           if(role.name == 'admin'){
-             res.redirect(req.session.returnTo || '/events');
-             delete req.session.returnTo;
+           if(role !== null){
+             if(role.name == 'admin'){
+               res.redirect(req.session.returnTo || '/events');
+               delete req.session.returnTo;
+             }
+             else {
+               res.redirect(req.session.returnTo || '/userevents');
+               delete req.session.returnTo;
+             }
            }
-           else {
-             res.redirect(req.session.returnTo || '/userevents');
-             delete req.session.returnTo;
+           else{
+               res.redirect('/userevents');
            }
-
          });
-       }
-       else{
-           res.redirect('/userevents');
-       }
-
-
-     });
+   });
     })(req, res, next);
   },
   delete : function(req, res){
