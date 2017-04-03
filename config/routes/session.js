@@ -36,8 +36,6 @@ module.exports ={
              res.redirect('/userevents');
          }
        });
-
-
      });
     })(req, res, next);
   },
