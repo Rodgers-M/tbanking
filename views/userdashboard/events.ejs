@@ -30,11 +30,12 @@
             </thead>
             <tbody>
               <% events.forEach(function(event, index){ %>
+              <% date = new Date( event.date) %>
               <tr>
                 <th scope="row"><%= index + 1 %></th>
                 <td><%= event.title %></td>
                 <td><%= event.venue %></td>
-                <td><%= event.date %></td>
+                <td><%= date.toLocaleString() %> (EAT) </td>
                 <td><%= event.time %></td>
                 <td><%= event.description %></td>
               </tr>
