@@ -58,8 +58,9 @@ passport.use('local-signup', new LocalStrategy({
                newUser.save(function(err) {
                    if (err)
                        throw err;
+                   req.flash('success', 'registration successful. Now login');
                    return done(null, newUser);
-                   console.log(newUser.local.email);
+
                });
            }
 
@@ -85,12 +86,12 @@ function(req, username, password, done) { // callback with username and password
 
         // if no user is found, return the message
         if (!user)
-            return done(null, false, req.flash('error', 'Login failed. Please try again.')); 
+            return done(null, false, req.flash('error', 'Login failed. Please try again.'));
             // req.flash is the way to set flashdata using connect-flash
 
         // if the user is found but the password is wrong
         if (!user.validPassword(password))
-            return done(null, false, req.flash('error', 'Oops! Wrong password or username')); 
+            return done(null, false, req.flash('error', 'Oops! Wrong password or username'));
             // create the loginMessage and save it to session as flashdata
 
         // all is well, return successful user
