@@ -29,11 +29,18 @@ function isAdmin(req, res, next){
 
     Role.findById(roleId, function(err, role){
       if(err) return error;
-      if(role.name == 'admin'){
-        return next()
+      if(role !==null){
+        if(role.name == 'admin'){
+          return next()
+        }
+        req.flash('error', 'you are not authorised to access that resource');
+        res.redirect('/userevents');
       }
-      req.flash('error', 'you are not authorised to access that resource');
-      res.redirect('/userevents');
+      else{
+        req.flash('error', 'you are not authorised to access that resource');
+        res.redirect('/userevents');
+      }
+
     } );
   });
 }
@@ -44,7 +51,7 @@ router.post('/session/create', sessionRoutes.create);
 router.get('/logout', sessionRoutes.delete);
 router.get('/signup', userRoutes.new );
 router.post('/user/create',passport.authenticate('local-signup', {
-        successRedirect : '/userevents', //
+        successRedirect : '/login', //
         failureRedirect : '/signup', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
