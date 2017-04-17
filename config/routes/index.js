@@ -78,7 +78,7 @@ router.get('/newevent', isLoggedIn, isAdmin, eventRoutes.new);
 router.post('/events/new', isLoggedIn,isAdmin, eventRoutes.create);
 router.get('/events', isLoggedIn,isAdmin, eventRoutes.index);
 router.get('/userevents',isLoggedIn, eventRoutes.userevent);
-router.get('/:slug', isLoggedIn, eventRoutes.edit);
+router.get('/editevent/:slug', isLoggedIn, eventRoutes.edit);
 router.post('/events/update', isLoggedIn, eventRoutes.update);
 
 
