@@ -1,0 +1,64 @@
+<% layout('adminlayout') %>
+<div class="row" style="margin-top : 5%;">
+  <div class="medium-6 columns medium-offset-2">
+    <% include ../partials/flash%>
+  </div>
+</div>
+<div class="row" style="margin-top : 1%;">
+  <div class="medium-6 columns medium-offset-2">
+    <div class="callout secondary">
+      <p>
+        Always keep the members upated by posting events when necessary. </br>
+        Remember to post an event atleast 24 hours before the actual event time for
+        convinience.
+      </p>
+    </div>
+  </div>
+</div>
+<form action="/events/update" method="post" style="margin-top : 1%;">
+  <div class="row">
+    <div class="medium-1 columns medium-offset-1">
+      <label for="eventTitle"> Title</label>
+    </div>
+    <div class="medium-6 columns end">
+      <input type="text" name="title" value="<%= event.title%>" required/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-1 columns medium-offset-1">
+      <label for="eventVenue"> Venue</label>
+    </div>
+    <div class="medium-6 columns end ">
+      <input type="text" name="venue" value="event.venue" required/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-1 columns medium-offset-1">
+      <label for="eventDescription"> Description</label>
+    </div>
+    <div class="medium-6 columns end ">
+      <textarea name="description" cols="43" rows="4" value="event.description" /></textarea>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-1 columns medium-offset-1">
+      <label for="eventTitle"> Date</label>
+    </div>
+    <div class="medium-6 columns end ">
+      <input type="date" name="date" value="event.date" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-1 columns medium-offset-1">
+      <label for="eventTitle"> Time</label>
+    </div>
+    <div class="medium-6 columns end ">
+      <input type="text" name="time" value="event.time"   required/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="medium-3 columns medium-offset-4">
+        <button type="submit" class="button success large">Update Event</button>
+    </div>
+  </div>
+</form>
