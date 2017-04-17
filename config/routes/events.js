@@ -10,13 +10,14 @@ module.exports = {
    var event = new Event();
 
    event.title        =  req.body.title;
+   event.slug		  =  event.slugify(req.body.title);
    event.venue        =  req.body.venue;
    event.date         =  req.body.date;
    event.time         =  req.body.time;
    event.description  =  req.body.description;
 
 
-    Event.findOne({title: event.title}, function(err, foundEvent){
+    Event.findOne({'slug': event.slug}, function(err, foundEvent){
       if (foundEvent){
         req.flash('error', 'Event Already already exists');
         return res.redirect('/newevent');
@@ -48,6 +49,23 @@ module.exports = {
           page   : 'events'
       });
     }).sort({"date":-1});
+  },
+	edit : function(req, res){
+	     Event.findOne({'slug' : req.params.slug}, function(err, event){
+         if(err) return next(err);
+         res.render('events/edit',{
+           page   : 'events',
+           event  : event
+         });
+       });
+	},
+
+  update : function(req, res){
+    Event.findOne({'slug' : req.body.slug}, function(err, foundEvent){
+      if(err) return next(err);
+      res.json(foundEvent);
+    });
   }
+
 
 };
