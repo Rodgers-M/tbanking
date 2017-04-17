@@ -17,7 +17,7 @@
       <label for="eventTitle"> Title</label>
     </div>
     <div class="medium-6 columns end">
-      <input type="text" name="title" value="<%= event.title%>" required/>
+      <input type="text" name="title" value="<%= event.title %>" required/>
     </div>
   </div>
   <div class="row">
@@ -25,7 +25,7 @@
       <label for="eventVenue"> Venue</label>
     </div>
     <div class="medium-6 columns end ">
-      <input type="text" name="venue" value="event.venue" required/>
+      <input type="text" name="venue" value="<%= event.venue %>" required/>
     </div>
   </div>
   <div class="row">
@@ -33,7 +33,7 @@
       <label for="eventDescription"> Description</label>
     </div>
     <div class="medium-6 columns end ">
-      <textarea name="description" cols="43" rows="4" value="event.description" /></textarea>
+      <textarea name="description" cols="43" rows="4" value="<%=event.description %>" /></textarea>
     </div>
   </div>
   <div class="row">
@@ -49,7 +49,7 @@
       <label for="eventTitle"> Time</label>
     </div>
     <div class="medium-6 columns end ">
-      <input type="text" name="time" value="event.time"   required/>
+      <input type="text" name="time" id="eventTime" value="<%= event.time %>"   required/>
     </div>
   </div>
   <div class="row">
