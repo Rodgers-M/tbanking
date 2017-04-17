@@ -10,10 +10,6 @@ var EventSchema   = new Schema({
     time         : { type : String }
 });
 
-EventSchema.methods.getEventByTitle = function(title, callback){
-  var query = {'title': title};
-  Event.findOne(query,callback);
-};
 
 EventSchema.methods.slugify =  function(text) {
 	return text.toString().toLowerCase()
