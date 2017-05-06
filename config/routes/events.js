@@ -62,7 +62,6 @@ module.exports = {
 
   update : function(req, res){
     Event.findOne({'slug' : req.body.slug}, function(err, foundEvent){
-		console.log(foundEvent);
         if(err) return next(err);
 		if(req.body.title) foundEvent.title = req.body.title;
 		if(req.body.venue) foundEvent.venue = req.body.venue;
