@@ -12,6 +12,7 @@
   </div>
 </div>
 <form action="/events/update" method="post" style="margin-top : 1%;">
+  <input type="hidden" name="slug" value="<%=event.slug %>">
   <div class="row">
     <div class="medium-1 columns medium-offset-1">
       <label for="eventTitle"> Title</label>
