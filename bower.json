@@ -3,7 +3,7 @@
   "description": "A system to manage group operations",
   "main": "server.js",
   "authors": [
-    "alex <alexkoome@gmail.com>"
+    "rodgers <mkishagha@gmail.com>"
   ],
   "license": "ISC",
   "homepage": "",
@@ -19,5 +19,8 @@
     "foundation-sites": "^6.3.0",
     "components-font-awesome": "^4.7.0",
     "jt.timepicker": "timepicker#^1.11.9"
+  },
+  "resolutions": {
+    "jquery": "1.10.2"
   }
 }
