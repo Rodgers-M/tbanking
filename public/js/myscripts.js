@@ -9,7 +9,7 @@ $(document).ready(function(){
 			$('nav').removeClass('sticky');
 		}
 	} , {
-		offset: '90%;'
+		offset: '50%;'
 	});
 
 });
