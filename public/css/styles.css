@@ -74,8 +74,8 @@ header{
 
 .btn_more:hover,
 .btn_more:active{
-    background-color:  bisque;
-    color:magenta;
+    background-color:#4dc3ff;
+    color:#804000;
 }
 .btn_more{
   background-color: none;
