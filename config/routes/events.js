@@ -62,10 +62,28 @@ module.exports = {
 
   update : function(req, res){
     Event.findOne({'slug' : req.body.slug}, function(err, foundEvent){
-      if(err) return next(err);
-      res.json(foundEvent);
-    });
-  }
+        if(err) return next(err);
+		if(req.body.title) foundEvent.title = req.body.title;
+		if(req.body.venue) foundEvent.venue = req.body.venue;
+		if(req.body.description) foundEvent.description = req.body.description;
+		if(req.body.date) foundEvent.date = req.body.date;
+		if(req.body.time) foundEvent.time = req.body.time;
+		if(req.body.slug) foundEvent.slug = req.body.slug;
+		foundEvent.save(function(error){
+			req.flash('success', 'event updated successfully');
+			res.redirect('/events');
+		});
+	});
+  },
+
+	delete : function(req, res){
+		Event.findOneAndRemove({'slug': req.params.slug}, function(error, removedEvent){
+			if(error) return next(error);
+			req.flash('success', 'Event deleted successfully');
+			res.redirect('/events');
+		});
+	
+	}
 
 
 };
