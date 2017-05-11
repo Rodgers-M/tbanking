@@ -17,3 +17,6 @@ $(document).ready(function(){
 $(function() {
   $('#eventTime').timepicker();
 });
+
+$('.close-button').closest('[data-closable]').fadeOut(8000);
+
