@@ -44,20 +44,17 @@ header{
   }
 .center_box{
     position: absolute;
-    width: 75%;
+    width: 90%;
     top: 50%;
     left: 50%;
     -webkit-transform:translate(-50% , -50%);
     transform:translate(-50% , -50%);
 	  color:white;
 }
-.center_box p{
-	font-size: 120%;
-	color: #9be622;
 
-}
-.center_box h1, .center_box p{
-	text-align: center;
+.center_box h1 {
+	text-align	: center;
+	font-size 	: 34px;
 }
 /*-------------------------------------*/
 /*  ----- buttons */
@@ -74,8 +71,8 @@ header{
 
 .btn_more:hover,
 .btn_more:active{
-    background-color:#4dc3ff;
-    color:#804000;
+    background-color: goldenrod;
+    color:#fff;
 }
 .btn_more{
   background-color: none;
@@ -89,15 +86,12 @@ header{
 /*   Sticky navigation */
 /*-------------------------------------*/
 .sticky{
-	width: 88.7%;
+	width: 1024px;
 	position: fixed;
-	margin-right: 3%;
 	top: 0;
-	background-color:  #d5d9ca;
-	box-shadow: 0 2px 2px #747474;
+	background-color:  #fff;
+	box-shadow: 0 4px 4px #747474;
 	z-index: 999;
-
-
  }
  .sticky .main_nav{
 	  margin-top: 1%;
