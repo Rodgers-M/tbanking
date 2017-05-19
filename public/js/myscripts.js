@@ -1,15 +1,15 @@
 $(document).ready(function(){
 
-	$('#tbinfo').waypoint(function(direction){
+	$('#topnav').waypoint(function(direction){
 
 		if(direction=="down"){
 
-			$('nav').addClass('sticky');
+			$('#topnav>ul').addClass('sticky');
 		} else{
-			$('nav').removeClass('sticky');
+			$('#topnav>ul').removeClass('sticky');
 		}
 	} , {
-		offset: '50%;'
+		offset: '0.1%;'
 	});
 
 });
