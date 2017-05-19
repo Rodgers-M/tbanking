@@ -81,5 +81,8 @@ router.get('/userevents',isLoggedIn, eventRoutes.userevent);
 router.get('/editevent/:slug', isLoggedIn, eventRoutes.edit);
 router.post('/events/update', isLoggedIn, eventRoutes.update);
 router.get('/deleteEvent/:slug', isLoggedIn, eventRoutes.delete);
+router.get('/home', function(req, res){
+	res.render('home');
+});
 
 module.exports = router;
