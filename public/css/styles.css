@@ -81,7 +81,6 @@ header{
 	font-size: 160%;
   border: 2px solid white;
 }
-
 /*-------------------------------------*/
 /*   Sticky navigation */
 /*-------------------------------------*/
@@ -142,6 +141,12 @@ header{
 .sidebar ul li a:hover, .top_bar ul li a:hover {
   color: orange;
 }
+/*-------------------------------------*/
+/*------- ---- icons ------------------*/
+/*-------------------------------------*/
 .dash_icons{
   margin-bottom: 9px;
+}
+.fa-exclamation-triangle{
+	color : #cc4b37;
 }

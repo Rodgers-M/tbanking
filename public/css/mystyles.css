@@ -1,7 +1,12 @@
 body{
 	margin			: 0 auto;
 	padding			: 0;
-	background-color: #e0e0d1;
+   url(../images/money.jpg);
+   background-size:cover;
+   background-position:center;
+   background-attachment: fixed;
+   height: 100vh;
+   background-color : #eee;
 }
 
 /* Headings */
