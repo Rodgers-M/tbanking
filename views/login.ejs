@@ -1,41 +1,40 @@
 <% include partials/masterhead %>
-
-<div class="row">
-  <div class="medium-4 columns medium-offset-4">
-    <h1> Login</h1>
+<div class="row" style="margin-top : 5%; ">
+  <div class="medium-5 columns medium-offset-4 authent">
+      <form action="/session/create" method="post" >
+        <div class="row">
+          <div class="medium-8 columns medium-offset-2" align="center">
+            <h1>Login</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="medium-8 columns medium-offset-2" style="margin-top:2%; margin-bottom: 2%;">
+            <% include /partials/flash %>
+          </div>
+        </div>
+        <div class="row" >
+          <div class="medium-8 columns medium-offset-2" >
+            <label> <h6>User Name</h6>
+               <input type="text" name="username" placeholder="User name">
+            </label>
+          </div>
+        </div>
+        <div class="row" >
+          <div class="medium-8 columns medium-offset-2" >
+            <label><h6>Password</h6>
+               <input type="password" name="password" placeholder="Enter Password">
+            </label>
+          </div>
+        </div>
+        <div class="row" >
+          <div class="medium-4 columns medium-offset-2" >
+            <button type="submit" class="button success"><strong>Login</strong></button>
+          </div>
+          <div class="medium-4 columns end">
+            <p> Not yet registered? </br><a href="/signup"><strong>Signup</strong></a></p>
+          </div>
+        </div>
+      </form>
   </div>
 </div>
-
-<div class="row">
-  <div class="medium-4 columns medium-offset-4" style="margin-top:2%" align="center">
-    <% include /partials/flash %>
-  </div>
-</div>
-
-<form action="/session/create" method="post">
-
-  <div class="row" >
-    <div class="medium-4 columns medium-offset-4" >
-      <label>User Name
-       <input type="text" name="username" placeholder="User name">
-     </label>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="medium-4 columns medium-offset-4">
-      <label>password
-       <input type="password" name="password" placeholder="password">
-     </label>
-    </div>
-  </div>
-  <div class="row">
-    <div class="medium-2 columns medium-offset-4">
-      <button type="submit" class="button success">Login</button>
-    </div>
-    <div class="medium-2 columns end ">
-        <p> Not a member yet? <a href="/signup">Signup</a></p>
-    </div>
-  </div>
-</form>
-<% include partials/pagescripts%>
+<% include partials/pagescripts %>
