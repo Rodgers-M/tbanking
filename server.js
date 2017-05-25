@@ -21,8 +21,8 @@ mongoose.connect(configDB.url);
 //require passport for authentication
 require('./config/passport')(passport);
 
-app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use(express.static(__dirname + '/public'));
+app.use('/editevent',express.static(__dirname + '/public'));
 
 app.use(cookieParser());
 app.use(session({
