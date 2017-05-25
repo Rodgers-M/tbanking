@@ -36,8 +36,32 @@
                 <td><%= event.description %></td>
                 <td>
                   <ul class="menu">
-                    <li><a href="editevent/<%=event.slug%>" title="Edit"> Edit<i class="fa fa-pencil-square-o " aria-hidden="true"></i> </a></li>
-                    <li><a href="/deleteEvent/<%=event.slug%>" title="Delete"> Delete<i class="fa fa-trash " aria-hidden="true"></i></a></li>
+                    <li><a href="editevent/<%=event.slug%>" title="Edit"> Edit<i class="fa fa-pencil-square-o "
+						 aria-hidden="true"></i> </a></li>
+                    <li><a href="#" title="Delete" data-open="<%=event.slug%>"> Delete<i class="fa fa-trash "
+						 aria-hidden="true"></i></a>
+
+
+					<form action="/deleteEvent/<%=event.slug%>" class="reveal" id="<%=event.slug%>" data-reveal>
+					  <p class="lead">
+						<i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
+						You're about to delete <span style="color :#669900;"> <%=event.title %> </span>
+						 event, confirm deletion below
+					</p>
+					  <div class="button-group" align="center">
+						
+					  <button class="button success" data-close aria-label="Close modal" type="button">
+						Cancel 
+					  </button>
+					  <button class="button alert" data-close aria-label="Close modal" type="submit">
+						Delete
+					  </button>
+					  </div>
+					  <button class="close-button" data-close aria-label="Close modal" type="button">
+						<span aria-hidden="true">&times;</span>
+					  </button>
+					</form>
+					</li>
                   </ul>
                 </td>
               </tr>

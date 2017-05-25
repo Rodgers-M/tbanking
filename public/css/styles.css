@@ -1,63 +1,111 @@
-header{
-  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)) , url(../images/tbanking.jpg);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)) , url(../images/tbanking.jpg);
+body{
+	margin			: 0 auto;
+	padding			: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)) , url(../images/bg.jpg);
+    background-size:cover;
+    background-position:center;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+/* Headings */
+h1,h2,h3,h4,h5,h6{font-weight : bold;}
+h1{font-size : 24px;}
+h2{font-size : 20px;}
+h3{font-size : 16px;}
+#outer{
+	background-color		: #fff;
+	max-width				: 1080px;
+	margin    				: 0.5% auto 0 auto;
+	border-radius	: 2em;
+}
+#wrapper{
+	max-width	: 1024px;
+	margin   	: 0 auto;
+}
+
+#logo{
+ float : left;
+ margin-top : 10px;
+}
+#social-icons{
+	margin-top : 10px;
+	float : right;
+}
+#social-icons ul{
+	list-style : none;
+}
+#social-icons ul li{
+	display	: inline;
+}
+
+#topnav{
+	clear: both;
+}
+#topnav ul{
+	margin			: 0 0 16px 0;
+	list-style		: none;
+	border-top		: 1px #ccc solid;
+	border-bottom	: 1px #ccc solid;
+	padding			: 10px 0;
+}
+#topnav ul li{
+ display	: inline;
+}
+#topnav ul li a{
+	padding			: 0 15px;
+	text-decoration : none;
+}
+#topnav a:link{
+	color		: #000;
+	font-weight	: bold;
+}
+#topnav a:visited{
+	color : #000;
+}
+#topnav a:hover{
+	color : #f90;
+}
+#topnav a:focus{
+	color : #666;
+}
+/*-------------------------------------*/
+/*   Sticky navigation */
+/*-------------------------------------*/
+.sticky{
+	width: 1024px;
+	position: fixed;
+	top: 0;
+	background-color:  #fff;
+	box-shadow: 0 4px 4px #747474;
+	z-index: 999;
+ }
+#banner{ 
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)) ,
+  url(../images/tbanking-350.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)) , url(../images/tbanking-350.jpg);
   background-size:cover;
-  background-position:center;
-  height: 100vh;
-  margin: 1% 5.65% 0.2%;
+  position:relative;
   background-attachment: fixed;
+  height:350px;
+  border-radius: 3%;
 }
-
-.main_nav{
-  float: right;
-  list-style: none;
-  margin-top: 3%;
-  margin-right:5%;
+.fa-spin{
+	animation : fa-spin 3s infinite linear;
 }
-.main_nav li{
-  display: inline-block;
-  margin-left: 10px;
-  }
-.main_nav li a:link,
-.main_nav li a:visited{
-  color:#fff;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 110%;
-  border-radius: 100px;
-  padding: 4px;
-
-  border: 2px solid  transparent;
-  -webkit-transition: background-color 0.2s, border 1s, color 0.2s;
-  transition: background-color 0.2s, border 1s, color 0.2s;
-  }
-.main_nav li a:hover,.main_nav li a:active{
-  background-color: bisque;
-  color:magenta;
-  }
-.logo{
-    height: 50px;
-    width: auto;
-    float: left;
-    margin-top: 10px;
-    margin-left: 10px;
-  }
 .center_box{
     position: absolute;
-    width: 75%;
+    width: 90%;
     top: 50%;
     left: 50%;
     -webkit-transform:translate(-50% , -50%);
     transform:translate(-50% , -50%);
 	  color:white;
 }
-.center_box p{
-	font-size: 120%;
-	color: #9be622;
 
-}
-.center_box h1, .center_box p{
-	text-align: center;
+.center_box h1 {
+	text-align	: center;
+	font-size 	: 34px;
 }
 /*-------------------------------------*/
 /*  ----- buttons */
@@ -74,8 +122,8 @@ header{
 
 .btn_more:hover,
 .btn_more:active{
-    background-color:#4dc3ff;
-    color:#804000;
+    background-color: goldenrod;
+    color:#fff;
 }
 .btn_more{
   background-color: none;
@@ -84,60 +132,60 @@ header{
 	font-size: 160%;
   border: 2px solid white;
 }
+#content{
+	margin-top	: 2%;
+	width 		: 69%;
+	float 		: left;
+}
+#content h1, #date{
+	color : #e8b10c;
+}
+#content h1{
+	padding-bottom	: 15px;
+	border-bottom 	: 1px #ccc solid;
+	margin-bottom	: 15px;
+}
+#content p{
+	margin-bottom : 15px;
+}
 
+.image-frame{
+	padding : 10px;
+	border	: 1px #ccc solid;
+	margin	: 10px;
+}
+#right-side{
+	margin-top	: 2%;
+	width 		: 28%;
+	float 		: right;
+	margin-left	: 3%;
+}
+#footer{
+	clear : both;
+	border-top 		: 1px #000 dotted;
+	padding			: 0.5% auto;
+	margin-bottom	: 0 auto;
+}
+#footer h3{
+	text-align		: center;
+	padding-bottom 	: 1.5%;
+}
 /*-------------------------------------*/
-/*   Sticky navigation */
+/*  ----- components colors ---------- */
 /*-------------------------------------*/
-.sticky{
-	width: 88.7%;
-	position: fixed;
-	margin-right: 3%;
-	top: 0;
-	background-color:  #d5d9ca;
-	box-shadow: 0 2px 2px #747474;
-	z-index: 999;
-
-
- }
- .sticky .main_nav{
-	  margin-top: 1%;
- }
-
-.sticky  .logo{
-	height: 50px;
-	width: auto;
-	margin-top: 3px;
-	margin-bottom: 3px;
-
-	}
-.sticky .main_nav{
-	margin-right: 0 auto;
-
+.authent{
+	background-color : #fff;
+	padding-top		 : 20px;
+	border-radius	 : 2em;
 }
-.sticky .main_nav li a:link,
-.sticky .main_nav li a:visited{
-    color:#365000;
-	background-color:  #d5d9ca;
-
-    }
-.sticky .main_nav li a:hover{
-     background-color: bisque;
-    color:magenta;
-  	}
-.tbinfo{
-  margin-bottom: 0px;
+.layout{
+	background-color : #eee;
 }
-.tbinfo h1{
-  text-align: center;
-}
-.tbinfo h1:after  {
-    display: block;
-    height: 2px;
-    background-color: #446600;
-    content: " ";
-    width: 10%;
-    margin: 0 auto 1%;
-    margin-top: 10px;
+/*-------------------------------------*/
+/*  ----- Input & text area ---------- */
+/*-------------------------------------*/
+input[type='text']:focus,input[type='email']:focus, input[type='password']:focus {
+ background-color :rgb(250, 255, 189);
 }
 .sidebar{
   background-color:#33334d;
@@ -148,6 +196,12 @@ header{
 .sidebar ul li a:hover, .top_bar ul li a:hover {
   color: orange;
 }
+/*-------------------------------------*/
+/*------- ---- icons ------------------*/
+/*-------------------------------------*/
 .dash_icons{
   margin-bottom: 9px;
+}
+.fa-exclamation-triangle{
+	color : #cc4b37;
 }
