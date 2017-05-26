@@ -1,14 +1,15 @@
 <% layout('userlayout') %>
 <div class="row">
-  <div class="medium-5 columns medium-offset-4" style="margin-top:2%" align="center">
+  <div class="medium-7 columns medium-offset-2" style="margin-top:2%" align="center">
     <% include ../partials/flash %>
   </div>
 </div>
 <div class="row">
   <div class="medium-12 columns  " style="margin-top:2%">
-    <div class="callout secondary" align="center">
+    <div class="callout success">
     You can always view all the events here. The events are sorted in in ascending order, with
-    latest upcoming event appearing first.
+    latest upcoming event appearing first.</br> To confirm that you will attend a certain event or meeting,
+	 click on RSVP at the right end of the event.
   </div>
   </div>
 </div>
@@ -26,6 +27,7 @@
                 <th>Date</th>
                 <th>Time</th>
                 <th>Description</th>
+				 <th>Options</th>
               </tr>
             </thead>
             <tbody>
@@ -35,9 +37,43 @@
                 <th scope="row"><%= index + 1 %></th>
                 <td><%= event.title %></td>
                 <td><%= event.venue %></td>
-                <td><%= date.toLocaleString() %> (EAT) </td>
+                <td><%= date.toDateString() %></td>
                 <td><%= event.time %></td>
                 <td><%= event.description %></td>
+                <td>
+				 <ul class="menu">
+                    <li>
+					 <a href="#" title="Rsvp"data-open="<%=event.slug%>" >
+						 RSVP<i class="fa fa-check fa-lg"
+						 aria-hidden="true"></i>
+					 </a>
+
+					<form action="/rsvp/<%=event.slug%>" method="post" class="reveal" id="<%=event.slug%>"
+					 data-reveal >
+					  <input type="hidden" name="slug" value="<%=event.slug %>"/>
+					  <p class="lead">
+						You will attend <span style="color :#669900;"> <%=event.title %> </span> event on 
+						<span style="color :#669900;"> <%=date.toDateString() %></span> at 
+						<span style="color :#669900;"> <%=event.time %>	</span> Let me Reserve you a seat.				 
+					</p>
+					  <div class="button-group" align="center">
+						
+					 	<button class="button success" type="submit">
+					 	  Yes Reserve.
+					    </button>
+					 	<button class="button" data-close aria-label="Close modal" type="button">
+							No Thank You.
+					    </button>
+
+					  </div>
+					  <button class="close-button" data-close aria-label="Close modal" type="button">
+						<span aria-hidden="true">&times;</span>
+					  </button>
+					</form>
+
+					</li>
+				  </ul>
+				</td>
               </tr>
               <%});%>
             </tbody>
