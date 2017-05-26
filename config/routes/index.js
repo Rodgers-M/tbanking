@@ -5,9 +5,10 @@ var homeRoutes      =  require('./home');
 var sessionRoutes   = require('./session');
 var userRoutes      = require('./user');
 var eventRoutes     = require('./events');
-var  roleRoutes     = require('./roles');
-var  sharesRoutes   = require('./shares');
+var roleRoutes      = require('./roles');
+var sharesRoutes    = require('./shares');
 var membersRoutes   = require('./members');
+var rsvpRoutes   	= require('./rsvp');
 
 var Role = require("../../app/models/roles");
 var User = require("../../app/models/user");
@@ -81,5 +82,8 @@ router.get('/userevents',isLoggedIn, eventRoutes.userevent);
 router.get('/editevent/:slug', isLoggedIn, eventRoutes.edit);
 router.post('/events/update', isLoggedIn, eventRoutes.update);
 router.get('/deleteEvent/:slug', isLoggedIn, eventRoutes.delete);
+
+//rsvp routes
+router.post('/rsvp/:slug', isLoggedIn, rsvpRoutes.create);
 
 module.exports = router;
