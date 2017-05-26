@@ -28,8 +28,6 @@ module.exports = {
   },
 
   assign : function(req, res){
-  //  var user = new User();
-    //var role = new Role();
     var username = req.body.username;
     var role     = req.body.role;
     console.log(role);
