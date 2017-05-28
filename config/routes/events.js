@@ -39,7 +39,7 @@ module.exports = {
             events : events,
             page   : 'events'
         });
-      });
+      }).sort({"date":-1}).limit(6);
     },
   userevent : function(req, res){
     Event.find({}, function(error, events){
@@ -63,12 +63,12 @@ module.exports = {
   update : function(req, res){
     Event.findOne({'slug' : req.body.slug}, function(err, foundEvent){
         if(err) return next(err);
-		if(req.body.title) foundEvent.title = req.body.title;
-		if(req.body.venue) foundEvent.venue = req.body.venue;
+		if(req.body.title) foundEvent.title 			= req.body.title;
+		if(req.body.venue) foundEvent.venue 			= req.body.venue;
 		if(req.body.description) foundEvent.description = req.body.description;
-		if(req.body.date) foundEvent.date = req.body.date;
-		if(req.body.time) foundEvent.time = req.body.time;
-		if(req.body.slug) foundEvent.slug = req.body.slug;
+		if(req.body.date) foundEvent.date 				= req.body.date;
+		if(req.body.time) foundEvent.time 				= req.body.time;
+	    foundEvent.slug 								= foundEvent.slugify(req.body.title) || foundEvent.slug;
 		foundEvent.save(function(error){
 			req.flash('success', 'event updated successfully');
 			res.redirect('/events');
