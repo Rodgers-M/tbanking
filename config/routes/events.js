@@ -39,7 +39,7 @@ module.exports = {
             events : events,
             page   : 'events'
         });
-      });
+      }).sort({"date":-1}).limit(6);
     },
   userevent : function(req, res){
     Event.find({}, function(error, events){
@@ -68,7 +68,7 @@ module.exports = {
 		if(req.body.description) foundEvent.description = req.body.description;
 		if(req.body.date) foundEvent.date 				= req.body.date;
 		if(req.body.time) foundEvent.time 				= req.body.time;
-		if(req.body.slug) foundEvent.slug 				= req.body.slug;
+	    foundEvent.slug 								= foundEvent.slugify(req.body.title) || foundEvent.slug;
 		foundEvent.save(function(error){
 			req.flash('success', 'event updated successfully');
 			res.redirect('/events');
