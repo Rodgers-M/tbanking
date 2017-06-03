@@ -11,7 +11,6 @@ $(document).ready(function(){
 	} , {
 		offset: '0.1%;'
 	});
-
 });
 
 $(function() {
