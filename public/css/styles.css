@@ -134,16 +134,22 @@ h3{font-size : 16px;}
 }
 #content{
 	margin-top	: 2%;
-	width 		: 69%;
-	float 		: left;
+	border-right : 1px solid #eee;
 }
 #content h1, #date{
 	color : #e8b10c;
 }
 #content h1{
 	padding-bottom	: 15px;
-	border-bottom 	: 1px #ccc solid;
 	margin-bottom	: 15px;
+}
+#content h1:after{
+	display 			: block;
+	height				: 2px;
+	content				: " ";
+	background-color 	: #eee;
+	width				: 66%;
+	margin-top			: 1%;
 }
 #content p{
 	margin-bottom : 15px;
@@ -156,15 +162,13 @@ h3{font-size : 16px;}
 }
 #right-side{
 	margin-top	: 2%;
-	width 		: 28%;
-	float 		: right;
-	margin-left	: 3%;
 }
 #footer{
 	clear : both;
 	border-top 		: 1px #000 dotted;
 	padding			: 0.5% auto;
-	margin-bottom	: 0 auto;
+	margin-top		: 1%;
+	padding-top		: 1%;
 }
 #footer h3{
 	text-align		: center;
