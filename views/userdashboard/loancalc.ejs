@@ -1,21 +1,44 @@
 <% layout('userlayout') %>
-<div class="callout" align="center">
-  some info about loan and the calculation process
+<div class="callout" style="margin-top : 2%;">
+	<p> A loan is a sum of money borrowed from the group to assist for certain planned activities which you 
+		you are required to repay including the interest charged within a period of one month. The current
+		interest rate as agreed by the group members is 10 %.
+	</p>
+	<p>
+		To calculate the amount of money you will pay back if take a loan, please input the amount you wish to 
+		borrow in below and click the button labled calculate.
+	</p>
 </div>
-<form action="/loancalc/new" method="post">
 
   <div class="row" >
     <div class="medium-1 columns medium-offset-2" >
     <label>Loan amount </label>
   </div>
     <div class="medium-4 columns end" >
-       <input type="number" name="amount" placeholder="amount to borrow">
+       <input type="number" name="amount" id="loanamnt" placeholder="amount to borrow">
     </div>
   </div>
 
   <div class="row">
     <div class="medium-4 columns medium-offset-4">
-      <button type="submit" class="button success">Calculate </button>
+      <button  id="loancalc" class="button success">Calculate </button>
     </div>
   </div>
-</form>
+  <div class="row">
+	<div class="medium-4 collumns medium-offset-3">
+		<div class="callout" id="pay">
+		 <p >Amount to pay is Ksh : <span id="payment"></span></p>
+		</div>
+	</div>
+  </div>
+  <div class="row">
+	<div class="callout">
+	<div class="medium-5 columns medium-offset-1">
+		Examples of a good debt
+	</div>
+	<div class="medium-5 columns end">
+		Examples of a bad debt
+	</div>
+	</div>
+  </div>
+	
