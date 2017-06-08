@@ -57,6 +57,7 @@ router.post('/user/create',passport.authenticate('local-signup', {
         failureFlash : true // allow flash messages
     }));
 router.get('/members', isLoggedIn, isAdmin, membersRoutes.index);
+router.get('/remove/:member', isLoggedIn, isAdmin, membersRoutes.delete);
 
 //roles routes
 router.get('/roles/:role',  roleRoutes.create);
