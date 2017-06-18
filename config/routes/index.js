@@ -51,6 +51,8 @@ router.post('/session/create', sessionRoutes.create);
 router.get('/logout', sessionRoutes.delete);
 router.get('/signup', userRoutes.new );
 router.post('/user/create', userRoutes.create);
+router.get('/resetpass', userRoutes.getpage );
+router.post('/resetpass', userRoutes.reset );
 router.get('/members', isLoggedIn, isAdmin, userRoutes.index);
 router.get('/remove/:member', isLoggedIn, isAdmin, userRoutes.delete);
 
@@ -64,12 +66,13 @@ router.get('/manageshares', isLoggedIn, isAdmin, sharesRoutes.new);
 router.post('/updateshares', isLoggedIn,  isAdmin, sharesRoutes.update);
 router.get('/shares', isLoggedIn,  isAdmin, sharesRoutes.userShares);
 router.get('/myshares', isLoggedIn,sharesRoutes.myShares);
-router.get('/loancalc', function(req, res){
+router.get('/loancalc',isLoggedIn, function(req, res){
   res.render('userdashboard/loancalc',{
       page : 'loancalc'
   });
 });
 
+router.get('/assets', isLoggedIn, sharesRoutes.assets);
 //events routes
 router.get('/newevent', isLoggedIn, isAdmin, eventRoutes.new);
 router.post('/events/new', isLoggedIn,isAdmin, eventRoutes.create);
@@ -81,5 +84,6 @@ router.get('/deleteEvent/:slug', isLoggedIn, eventRoutes.delete);
 
 //rsvp routes
 router.post('/rsvp/:slug', isLoggedIn, rsvpRoutes.create);
+router.get('/showrsvp/:slug', rsvpRoutes.index);
 
 module.exports = router;
