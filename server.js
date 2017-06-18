@@ -23,19 +23,20 @@ require('./config/passport')(passport);
 
 app.use(express.static(__dirname + '/public'));
 app.use('/editevent',express.static(__dirname + '/public'));
+app.use('/showrsvp',express.static(__dirname + '/public'));
 
 app.use(cookieParser());
 app.use(session({
 	 resave            : true,
-   saveUninitialized : true,
-	 secret						 : configDB.secret,
-	 store						 : new mongostore({url: configDB.url, autoReconnect : true})
+   saveUninitialized   : true,
+	 secret			   : configDB.secret,
+	 store			   : new mongostore({url: configDB.url, autoReconnect : true})
 }));
 app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
+app.use(passport.session()); 
 app.use(flash());
 
-/* make the user and flsh messages objects accessible throughought
+/* make the user and flash messages objects accessible throughought
 the whole req, res cycle
 */
 app.use(function(req, res, next){
@@ -48,7 +49,7 @@ app.engine('ejs', engine);
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(function(req, res, next){
-	 res.set('X-Powered-By', 'Agrimon');
+	 res.set('X-Powered-By', 'Meruent');
 	 next();
 });
 var routes    =  require('./config/routes/index');
