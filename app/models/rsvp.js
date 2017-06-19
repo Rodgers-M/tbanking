@@ -5,8 +5,8 @@ var User       =   require('../../app/models/user');
 var Event      =   require('../../app/models/events');
 
 var RsvpSchema =  Schema( {
-   username   : [{type : String, ref:User }],
-   event_slug : [{type : String, ref:Event}]
+   username   : [{type: Schema.Types.ObjectId,  ref:'User' }],
+   event_slug : [{type : String, ref:'Event'}]
  });
 
 

@@ -1,0 +1,39 @@
+<% layout('adminlayout') %>
+<%if(rsvps.length != 0){ %>
+<div class="row collapse">
+	<div class="medium-12 columns">
+		<div class="callout primary" align="center">
+			<p>Members attending this event</p>
+		 <table style="width: 100%" class="tb">
+            <thead>
+              <tr>
+                <th>Count</th>
+                <th>First name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% rsvps.forEach(function(rsvp, index){ %>
+					<% user = rsvp.username %>
+              <tr>
+                <th scope="row"><%= index + 1 %></th>
+                <td><%=user[0].local.firstname %></td>
+                <td><%=user[0].local.lastname %></td>
+                <td><%=user[0].local.username%></td>
+                <td><%=user[0].local.email %></td>
+              </tr>
+              <%});%>
+            </tbody>
+          </table>
+		</div>	
+	</div>
+</div>
+<%} else {%>
+<div class="row collapse">
+	<div class="callout primary" align="center">
+		<p> Users have not yet responded to this event,their derails will appear here when they respond. </p>
+	</div>
+</div>
+<% }%>

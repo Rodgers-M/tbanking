@@ -12,7 +12,7 @@
     <div class="callout">
       <div><h3>Current Events</h3></div>
       <div class="callout secondary">
-        <table style="width: 100%">
+        <table style="width: 100%" class="tb">
             <thead>
               <tr>
                 <th>Event No.</th>
@@ -36,10 +36,12 @@
                 <td><%= event.description %></td>
                 <td>
                   <ul class="menu">
-                    <li><a href="editevent/<%=event.slug%>" title="Edit"> Edit<i class="fa fa-pencil-square-o "
+                    <li><a href="/editevent/<%=event.slug%>" title="Edit"> Edit<i class="fa fa-pencil-square-o "
 						 aria-hidden="true"></i> </a></li>
                     <li><a href="#" title="Delete" data-open="<%=event.slug%>"> Delete<i class="fa fa-trash "
 						 aria-hidden="true"></i></a>
+				 <li><a href="/showrsvp/<%=event.slug%>" title="rsvp" >RSVPs<i class="fa fa-check-square-o"aria-hidden="true"></i></a>
+
 
 
 					<form action="/deleteEvent/<%=event.slug%>" class="reveal" id="<%=event.slug%>" data-reveal>
