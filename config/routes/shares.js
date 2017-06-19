@@ -48,5 +48,10 @@ module.exports ={
       req.flash( 'info', 'hey', user.local.username, 'you have', user.local.shares, 'shares' );
       res.redirect('userevents');
     });
-  }
+  },
+	assets :function(req, res){
+	    res.render('userdashboard/assets',{
+		 page : 'assets'
+		})
+	}
 }
